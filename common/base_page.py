@@ -60,8 +60,16 @@ class BasePage(object):
         element = self.find_element(element_info)
         element.send_keys(content)
         logger.info('元素%s输入"%s' % (element_info['element_name'],content))
-
-
+    def frame_switch(self,element_info):
+        content_frame = self.find_element(element_info)
+        self.driver.switch_to.frame(content_frame)
+        logger.info('切换Frame到"%s' % element_info['element_name'])
+    def frame_default(self):
+        self.driver.switch_to.default_content()
+        logger.info('回到默认主Frame')
+    def clear(self,element_info):
+        self.driver.find_element(element_info).clear()
+        logger.info('%s输入框清楚'% element_info['element_name'])
 
 
 if __name__ == '__main__':
