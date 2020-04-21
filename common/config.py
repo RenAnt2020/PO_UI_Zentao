@@ -3,7 +3,6 @@ import configparser
 from selenium import webdriver
 from common.log_utils import logger
 
-
 class Config():
     def __init__(self,Env='Local'):
         self.Env = Env
@@ -15,19 +14,16 @@ class Config():
         self.Env_path = self.Config.get(self.Env, 'driver_path')
         self.Env_driver_path = os.path.dirname(__file__) + self.Env_path
         return self.Env_driver_path
-
-
     @property
     def url(self):
         return self.Config.get(self.Env,'url')
-
     @property
     def username(self):
         return self.Config.get(self.Env,'username')
-
     @property
     def password(self):
         return self.Config.get(self.Env,"password")
+
     def driver(self):
         if  'chrome' in Config().driver_path:
             self.driver = webdriver.Chrome(executable_path=Config().driver_path)  ##按driver名字启动不同的driver，并配置化

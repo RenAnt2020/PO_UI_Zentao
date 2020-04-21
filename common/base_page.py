@@ -5,11 +5,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from common.log_utils import logger
 
-
-# current_path = os.path.dirname(__file__)
-# driver_path = os.path.join(current_path, '../webdriver/chromedriver.exe')
-
-
 class BasePage(object):
     def __init__(self,driver):
         self.driver = driver#启动driver
@@ -34,6 +29,9 @@ class BasePage(object):
         text = self.driver.text
         logger.info("浏览器title：%s" %text)
         return text
+    def set_brower_quit(self):
+        self.driver.quit()
+        logger.info('浏览器退出')
     #元素操作封装
     def find_element(self,element_info):
         locator_type_name = element_info['locator_type']
@@ -62,6 +60,9 @@ class BasePage(object):
         element = self.find_element(element_info)
         element.send_keys(content)
         logger.info('元素%s输入"%s' % (element_info['element_name'],content))
+
+
+
 
 if __name__ == '__main__':
     pass

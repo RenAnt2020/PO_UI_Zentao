@@ -1,12 +1,5 @@
-import os
-import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from common.log_utils import logger
-from common.config import Config
 from common.base_page import BasePage
 from common.login_utils import login
-from element_infos.login_page import LoginPage
 
 class MainPage(BasePage):
     def __init__(self,driver):
@@ -40,16 +33,12 @@ class MainPage(BasePage):
     #     return value
 
 if __name__=="__main__":
-    # driver = webdriver.Chrome(executable_path=Config().driver_path)  ##按driver名字启动不同的driver，并配置化
-    # login_page =  LoginPage(driver)
-    # login_page.open_url(Config().url)
-    # login_page.input_username(Config().username)
-    # login_page.input_password(Config().password)
-    # login_page.click_login()
-    login().login_success()
-    main_page =  MainPage(login().driver)
+    login.login_success()
+    main_page =  MainPage(login.driver)
+    main_page.set_brower_max()
     main_page.goto_test()
     main_page.goto_myzone()
+    main_page.set_brower_quit()
     # main_page.get_companyname() #这两句有问题还需要继续看
     # main_page.get_username()
 

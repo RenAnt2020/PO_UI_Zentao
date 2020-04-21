@@ -10,7 +10,7 @@ class login(object):
         self.login_page.input_username(Config().username)
         self.login_page.input_password(Config().password)
         self.login_page.click_login()
-        # return login()
+login = login()
 
 if __name__ == '__main__':
-    login().login_success()
+    login.login_success()
