@@ -17,10 +17,10 @@ class createbug(BasePage):
     def input_bugtitle(self,bugtitle):
         self.input(self.bugtitle_inputbox,bugtitle)
     def input_bugdescribe(self,bugdescribe):
-        # self.frame_switch(self.bugdescribe_frame)
+        self.frame_switch(self.bugdescribe_frame)
         self.clear(self.bugdescribe_inputbox)
         self.input(self.bugdescribe_inputbox,bugdescribe)
-        # self.frame_default()
+        self.frame_default()
     def submit_bug(self):
         self.click(self.submit_button)
 

@@ -12,7 +12,10 @@ class LogUtils:
         file_log = logging.FileHandler(self.logfile_path)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         file_log.setFormatter(formatter)
+        echo_log = logging.StreamHandler()
+        echo_log.setFormatter(formatter)
         self.logger.addHandler(file_log)
+        self.logger.addHandler(echo_log)
 
     def info(self,message):
         self.logger.info( message )

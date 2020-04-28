@@ -9,6 +9,7 @@ class Config():
         self.Config_path = os.path.dirname(__file__) + '/../conf/config.ini'
         self.Config = configparser.ConfigParser()
         self.Config.read(self.Config_path, encoding='utf-8')
+        self.excel_path = os.path.dirname(__file__)+'/../element_infos_datas/element_infos_r.xlsx'
     @property
     def driver_path(self):
         self.Env_path = self.Config.get(self.Env, 'driver_path')
@@ -36,5 +37,6 @@ class Config():
         return self.driver
 
 
+
 if __name__ == '__main__':
-    print(Config().driver())
+    print(Config().excel_path)

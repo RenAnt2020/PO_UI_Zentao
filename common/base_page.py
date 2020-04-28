@@ -10,7 +10,7 @@ class BasePage(object):
         self.driver = driver#启动driver
     #浏览器操作封装
     def open_url(self,url):
-        logger.info("打开网址：%s"%url)
+        logger.info("打开网址：[%s]"%url)
         self.driver.get(url)
     def set_brower_max(self):
         logger.info("浏览器最大化")
@@ -23,11 +23,11 @@ class BasePage(object):
         self.driver.refresh()
     def get_title(self):
         title = self.driver.title
-        logger.info("浏览器title：%s" %title)
+        logger.info("浏览器title：[%s]" %title)
         return title
     def get_text(self):
         text = self.driver.text
-        logger.info("浏览器title：%s" %text)
+        logger.info("浏览器title：[%s]" %text)
         return text
     def set_brower_quit(self):
         self.driver.quit()
@@ -54,22 +54,22 @@ class BasePage(object):
     def click(self,element_info):
         element = self.find_element(element_info)
         element.click()
-        logger.info('点击%s元素'%element_info['element_name'])
+        logger.info('点击[%s]元素'%element_info['element_name'])
 
     def input(self,element_info,content):
         element = self.find_element(element_info)
         element.send_keys(content)
-        logger.info('元素%s输入"%s' % (element_info['element_name'],content))
+        logger.info('元素[%s]输入[%s]' % (element_info['element_name'],content))
     def frame_switch(self,element_info):
         content_frame = self.find_element(element_info)
         self.driver.switch_to.frame(content_frame)
-        logger.info('切换Frame到"%s' % element_info['element_name'])
+        logger.info('切换Frame到[%s]' % element_info['element_name'])
     def frame_default(self):
         self.driver.switch_to.default_content()
         logger.info('回到默认主Frame')
     def clear(self,element_info):
         self.driver.find_element(element_info).clear()
-        logger.info('%s输入框清楚'% element_info['element_name'])
+        logger.info('[%s]输入框清楚'% element_info['element_name'])
 
 
 if __name__ == '__main__':
