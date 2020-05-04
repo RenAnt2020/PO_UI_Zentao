@@ -1,6 +1,7 @@
 from common.base_page import BasePage
 from common.config import Config
 from common.element_date_utils import ElementdataUtils
+from selenium.webdriver.common.by import By
 class LoginPage(BasePage):
     def __init__(self,driver):  #属性 ==》页面控件
         super().__init__(driver)
@@ -20,11 +21,17 @@ class LoginPage(BasePage):
         self.input(self.password_inputbox,password)
     def click_login(self):
         self.click(self.login_button)
+    def clear_username(self):
+        self.clear_base(self.username_inputbox)
 
 if __name__ == '__main__':
     # driver = webdriver.Chrome(executable_path=Config().driver_path)  ##按driver名字启动不同的driver，并配置化
-    login_page =  LoginPage(Config().driver())
+    driver = Config().driver()
+    login_page =  LoginPage(driver)
     login_page.open_url(Config().url)
     login_page.input_username(Config().username)
     login_page.input_password(Config().password)
+    # login_page.clear_username() #调试代码
+    # driver.find_element(By.XPATH, '//input[@name="account"]').clear()
+
     login_page.click_login()

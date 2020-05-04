@@ -67,9 +67,25 @@ class BasePage(object):
     def frame_default(self):
         self.driver.switch_to.default_content()
         logger.info('回到默认主Frame')
-    def clear(self,element_info):
-        self.driver.find_element(element_info).clear()
+    def clear_base(self,element_info):
+        element = self.find_element(element_info)
+        element.clear()
         logger.info('[%s]输入框清楚'% element_info['element_name'])
+    #鼠标操作
+    #按传入的JS代码操作
+    def execute_script(self,js_str,element_info=None):
+        if element_info:
+            element = self.find_element(element_info)
+            self.driver.execute_script(js_str,element)
+        else:
+            self.driver.execute_script(js_str,None)
+    #滚动条拖动到页面元素位置
+    def scrollIntoView_script(self,element_info):
+        element = self.find_element(element_info)
+        self.driver.execute_script("return arguments[0].scrollIntoView();",element)
+
+
+
 
 
 if __name__ == '__main__':
