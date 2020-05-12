@@ -2,7 +2,7 @@ from common.base_page import BasePage
 from common.login_utils import login
 from element_infos.main.main_page import MainPage
 from element_infos.test.testmenu_page import Testbugpape
-from common.element_date_utils import ElementdataUtils
+from common.element_data_utils import ElementdataUtils
 
 class createbug(BasePage):
     def __init__(self,driver):

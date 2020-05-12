@@ -9,6 +9,9 @@ import unittest
 from common.base_page import BasePage
 from actions.login_action import LoginAction
 from common.config import Config
+from element_infos.main.main_page import MainPage
+
+
 
 class LoginTest(unittest.TestCase):
     def setUp(self) -> None:
@@ -20,11 +23,12 @@ class LoginTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.base_page.set_brower_quit()
 
-    # def test_login_success(self):
-    #     login_action = LoginAction( self.base_page.driver )
-    #     main_page = login_action.login_success('test01','newdream123')
-    #     actual_result = main_page.get_username()
-    #     self.assertEqual(actual_result,'测试人员1','test_login_success用例执行失败')
+    def test_login_success(self):
+        login_action = LoginAction( self.base_page.driver )
+        main_page = login_action.login_success('test01', 'newdream123')
+        # 这两句未调试通过
+        actual_result = main_page.get_username()
+        self.assertEqual(actual_result,'测试人员1','test_login_success用例执行失败')
 
     def test_login_fail(self):
         login_action = LoginAction(self.base_page.driver)

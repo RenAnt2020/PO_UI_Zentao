@@ -1,6 +1,6 @@
 from common.base_page import BasePage
 from common.config import Config
-from common.element_date_utils import ElementdataUtils
+from common.element_data_utils import ElementdataUtils
 from selenium.webdriver.common.by import By
 class LoginPage(BasePage):
     def __init__(self,driver):  #属性 ==》页面控件

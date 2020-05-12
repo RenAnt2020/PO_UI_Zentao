@@ -19,9 +19,9 @@ class SeleniumBaseCase(unittest.TestCase):
     def setUp(self) -> None:
         logger.info('---------测试方法开始执行-----------')
         self.base_page = BasePage(Config().driver)
-        self.base_page.set_browser_max()
+        self.base_page.set_brower_max()
         self.base_page.implicitly_wait()
-        self.base_page.open_url(self.url)
+        self.base_page.open_url(Config().url)
 
     def tearDown(self) -> None:
         # 测试用例失败截图

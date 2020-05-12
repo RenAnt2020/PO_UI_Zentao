@@ -86,6 +86,67 @@ class Config():
     def element_info_path(self):
         element_info_path = self.Config.get(self.Env, 'element_info_path')
         return element_info_path
+
+    @property
+    def screenshot_path(self):
+        screenshot_path_value = self.Config.get(self.Env, 'screen_shot_path')
+        return screenshot_path_value
+
+    @property
+    def log_path(self):
+        log_path_value = self.Config.get(self.Env, 'log_path')
+        return log_path_value
+
+    @property
+    def testdata_path(self):
+        testdata_path_value = self.Config.get(self.Env, 'testdata_path')
+        return testdata_path_value
+
+    @property
+    def case_path(self):
+        case_path_value = self.Config.get(self.Env, 'case_path')
+        return case_path_value
+
+    @property
+    def report_path(self):
+        report_path_value = self.Config.get(self.Env, 'report_path')
+        return report_path_value
+
+    @property
+    def log_level(self):
+        log_level_value = int(self.Config.get('default', 'log_level'))
+        return log_level_value
+
+    @property
+    def smtp_server(self):
+        smtp_server_value = self.Config.get('email', 'smtp_server')
+        return smtp_server_value
+
+    @property
+    def smtp_sender(self):
+        smtp_sender_value = self.Config.get('email', 'smtp_sender')
+        return smtp_sender_value
+
+    @property
+    def smtp_password(self):
+        smtp_password_value = self.Config.get('email', 'smtp_password')
+        return smtp_password_value
+
+    @property
+    def smtp_receiver(self):
+        smtp_receiver_value = self.Config.get('email', 'smtp_receiver')
+        return smtp_receiver_value
+
+    @property
+    def smtp_cc(self):
+        smtp_cc_value = self.Config.get('email', 'smtp_cc')
+        return smtp_cc_value
+
+    @property
+    def smtp_subject(self):
+        smtp_subject_value = self.Config.get('email', 'smtp_subject')
+        return smtp_subject_value
+
 local_config = Config()
 if __name__ == '__main__':
     print(Config().excel_path)
