@@ -23,10 +23,12 @@ class LoginPage(BasePage):
         self.click(self.login_button)
     def clear_username(self):
         self.clear_base(self.username_inputbox)
+    def get_login_fail_alert_content(self):
+        return self.switch_to_alert()
 
 if __name__ == '__main__':
     # driver = webdriver.Chrome(executable_path=Config().driver_path)  ##按driver名字启动不同的driver，并配置化
-    driver = Config().driver()
+    driver = Config().driver
     login_page =  LoginPage(driver)
     login_page.open_url(Config().url)
     login_page.input_username(Config().username)
